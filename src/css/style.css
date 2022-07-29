@@ -16,6 +16,9 @@ header {
 header h1 {
     width: 75%;
     color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero {
@@ -51,6 +54,9 @@ label, #result h2 {
     padding: 1em;
     border-radius: 25px;
     background: hsla(100, 80%, 80%, .7);
+    box-shadow: 0 2px 6px 1px hsla(100, 80%, 80%, .7),
+    0 3px 6px 1px rgba(12, 240, 221, 0.4),
+    inset 0 3px 4px 1px hsla(100, 80%, 30%, .7);
 }
 [name = color1],
 [name = color2]{
@@ -60,8 +66,10 @@ label, #result h2 {
 }
 #color-picker, #direction-select, #style-select {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    gap: 1em;
     margin-bottom: 1em;
     padding: 2em;
     background-color: #fff;
@@ -75,14 +83,32 @@ label, #result h2 {
     border-radius: 15px;
     padding: .3em .5em;
 }
+#result {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#result h2 {
+  width: fit-content;
+  grid-column: 1/3;
+  justify-self: center;
+}
+#result-output {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1/3;
+  gap: 1em;
+}
 #copy {
-    margin-top: 1em;
     border: none;
     height: 3em;
     width: 3em;
     text-align: center;
     border-radius: 50%;
     background: hsla(100, 80%, 80%, .7);
+    box-shadow: 0 2px 6px 1px hsla(100, 80%, 80%, .7),
+    0 3px 6px 1px rgba(12, 240, 221, 0.4),
+    inset 0 3px 4px 1px hsla(100, 80%, 30%, .7);
 
 }
 .lg-format {
@@ -92,7 +118,7 @@ footer {
     padding: 1em;
     text-align: center;
 }
-@media only screen and (min-device-width: 768px) {
+@media screen and (min-width: 768px) {
 
     body{
         font: 'Raleway' , sans-serif;
@@ -101,17 +127,13 @@ footer {
         background: linear-gradient(to right, red, yellow);
         height: 100vh;
     }
-    header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+    
     
     header h1{
         font: 600  'Raleway', sans-serif;
         text-align: center;
         width: fit-content;
-        margin-top: 0;
+        margin-top: .3em;
         padding: .3em;
         border-radius: 45px;
     }
@@ -151,12 +173,6 @@ footer {
         border-radius: 5px;
         border: none;
     }
-    
-    #color-picker, #direction-select, #style-select {
-        margin-bottom: 1em;
-        justify-content: center;
-        gap: 2em;
-    }
     #result {
         display: flex;
         flex-direction: column;
@@ -182,12 +198,13 @@ footer {
         margin: 0;
     }
     footer {
-        margin-top: 3em;
+        margin-top: 2em;
     }
 }
-@media only screen and (min-device-width: 1024px) {
+@media screen and (min-width: 1024px) {
     header h1 {
         margin: 0;
+        color: white;
     }
     .container {
         display: flex;
@@ -205,6 +222,8 @@ footer {
         position: absolute;
         top: 0;
         left: 2em;
+        color: hsla(0, 100%, 100%, .5);
+
     }
     
 }

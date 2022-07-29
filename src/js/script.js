@@ -6,6 +6,8 @@ let copyBtn = document.getElementById('copy')
 let resultText = document.getElementById('colorResult');
 let direction = document.getElementById('direction');
 let gradientStyle = document.getElementById('styler');
+let titleA = document.getElementById('titleA');
+let titleB = document.getElementById('titleB');
 let dir = '';
 let gStyle = '';
 
@@ -29,7 +31,12 @@ function randomPick() {
     body.style.background = `linear-gradient(to right, #${r1}, #${r2})`;
     color1.value = `#${r1}`;
     color2.value = `#${r2}`;
-    resultText.value = `linear-gradient(to right, ${color1.value}, ${color2.value})`;
+    let newBack = `linear-gradient(to right, ${color1.value}, ${color2.value})`;
+    resultText.value = newBack;
+    btn.style.background = newBack;
+    copyBtn.style.background = newBack;
+    titleA.style.color = color2.value;
+    titleB.style.color = color1.value;
     gradientStyle.selectedIndex = 0;
     direction.selectedIndex = 0;
 }
